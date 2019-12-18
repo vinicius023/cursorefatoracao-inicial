@@ -5,11 +5,16 @@ $saldos = [
     'Erika' => 5000,
 ];
 
-//Verifica se o usuário existe
-if (array_key_exists("Giovanni", $saldos)) {
-    //Se existir, exibe o saldo na tela
-    echo "<p>O saldo do Giovanni é: ${saldos['Giovanni']}</p>";
-} else {
-    //Se não, exibe erro
+function exibeSaldoCorrentista(string $nome, array $saldos) {
+    array_key_exists($nome, $saldos) ? exibeSaldo($nome, $saldos) : exibeErro();
+}
+
+function exibeSaldo(string $nome, array $saldos) {
+    echo "<p>O saldo do $nome é: {$saldos[$nome]}</p>";
+}
+
+function exibeErro() {
     echo "<p>Correntista não existente.</p>";
 }
+
+exibeSaldoCorrentista("Giovanni", $saldos);
