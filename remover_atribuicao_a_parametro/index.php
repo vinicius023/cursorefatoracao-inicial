@@ -2,26 +2,31 @@
 
 function recebeDesconto(int $descontoInicial, bool $ehPremium, int $quantidade, int $anosCliente): void
 {
+    $desconto = $descontoInicial;
 
-    if ($descontoInicial > 200) {
+    if ($desconto > 200) {
         return;
     }
 
     if ($ehPremium === true) {
-        $descontoInicial = $descontoInicial * 1.1;
+        $desconto = $desconto * 1.1;
     }
 
     if ($quantidade > 50) {
-        $descontoInicial = $descontoInicial * 1.2;
+        $desconto = $desconto * 1.2;
     }
 
     if ($anosCliente > 3) {
-        $descontoInicial = $descontoInicial * 1.1;
+        $desconto = $desconto * 1.1;
     }
 
     echo <<<EOF
 --------------------
-Desconto: $descontoInicial
+Desconto Inicial: $descontoInicial
+--------------------
+<br>
+--------------------
+Desconto Final: $desconto
 --------------------
 EOF;
 }
